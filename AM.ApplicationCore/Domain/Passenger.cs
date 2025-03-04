@@ -19,34 +19,33 @@ namespace AM.ApplicationCore.Domain
         public DateTime BirthDate { get; set; }
         [DataType(DataType.EmailAddress)]
         public string EmailAddress { get; set; }
-        [MinLength(3,ErrorMessage ="Min 3 caractères"),MaxLength(25, ErrorMessage ="Max 25 caractères")]
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
         [RegularExpression("^[0,9]{8}$")]
         public int TelNumber { get; set; }
         public ICollection<Flight> Flights { get; set; }
 
+        public FullName fullName { get; set; }
+
 
         public override string? ToString()
         {
-            return "FirstName:" +FirstName+ "LastName:" +LastName;
+            return "FirstName:" + fullName.FirstName + "LastName:" + fullName.LastName;
         }
         //10-a
         public bool CheckProfile( string Fn , string Ln)
         {
-            return FirstName== Fn && LastName== Ln;
+            return fullName.FirstName == Fn && fullName.LastName == Ln;
         }
         //10-b
         public bool CheckProfile( string Fn , string Ln, string email=null) 
         {
-            return LastName== Ln && EmailAddress== Fn && EmailAddress==email;
+            return fullName.LastName == Ln && EmailAddress== Fn && EmailAddress==email;
         }
         //10-c
         public bool CheckProfile2(string Fn, string Ln, string email)
         {
             if(email!=null) 
-            return LastName == Ln && EmailAddress == Fn && EmailAddress == email;
-            else return FirstName == Fn && LastName == Ln;
+            return fullName.LastName == Ln && EmailAddress == Fn && EmailAddress == email;
+            else return fullName.FirstName == Fn && fullName.LastName == Ln;
         }
 
         //Polymorphisme par héritage
