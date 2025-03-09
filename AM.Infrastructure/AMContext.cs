@@ -35,8 +35,9 @@ namespace AM.Infrastructure
             // 1ere méthode
             modelBuilder.ApplyConfiguration(new PlaneConfiguration());
             modelBuilder.ApplyConfiguration(new FlightConfiguration());
-            modelBuilder.Entity<Passenger>()
-                        .OwnsOne(p => p.fullName);
+            modelBuilder.ApplyConfiguration(new PassengerConfiguration());
+            // modelBuilder.Entity<Passenger>()
+            //            .OwnsOne(p => p.FullName);
 
             //2éme méthode : sans class Configuration
             //modelBuilder.Entity<Plane>().HasKey(p => p.PlaneId);

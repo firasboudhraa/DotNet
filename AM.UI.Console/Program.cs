@@ -20,7 +20,7 @@ Plane plane3 = new Plane {planeType =PlaneType.Airbus , Capacity = 200 , ManuFac
 
 //Question11
 
-Passenger passenger = new Passenger { fullName = new FullName { FirstName = "firas", LastName = "Boudhraa" }, EmailAddress="Firas.Boudhraa@esprit.tn" };
+Passenger passenger = new Passenger { FullName = new FullName { FirstName = "firas", LastName = "Boudhraa" }, EmailAddress="Firas.Boudhraa@esprit.tn" };
 Console.WriteLine("La méthode checkpassenger");
 Console.WriteLine(passenger.CheckProfile("firas", "Boudhraa"));
 Console.WriteLine(passenger.CheckProfile2("firas","Boudhraa","Firas.Boudhraa@esprit.tn"));
@@ -85,7 +85,7 @@ Flight selectedFlight = flightService.Flights.First();
 Console.WriteLine($"Top 3 oldest travellers on flight to {selectedFlight.Destination}: ");
 foreach(var t in flightService.SeniorTravellers(selectedFlight))
 {
-    Console.WriteLine($"{t.fullName.FirstName} {t.fullName.LastName} , Born: {t.BirthDate.ToShortDateString()}");
+    Console.WriteLine($"{t.FullName.FirstName} {t.FullName.LastName} , Born: {t.BirthDate.ToShortDateString()}");
 }
 
 //Question15 

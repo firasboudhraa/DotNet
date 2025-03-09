@@ -23,29 +23,29 @@ namespace AM.ApplicationCore.Domain
         public int TelNumber { get; set; }
         public ICollection<Flight> Flights { get; set; }
 
-        public FullName fullName { get; set; }
+        public FullName FullName { get; set; }
 
 
         public override string? ToString()
         {
-            return "FirstName:" + fullName.FirstName + "LastName:" + fullName.LastName;
+            return "FirstName:" + FullName.FirstName + "LastName:" + FullName.LastName;
         }
         //10-a
         public bool CheckProfile( string Fn , string Ln)
         {
-            return fullName.FirstName == Fn && fullName.LastName == Ln;
+            return FullName.FirstName == Fn && FullName.LastName == Ln;
         }
         //10-b
         public bool CheckProfile( string Fn , string Ln, string email=null) 
         {
-            return fullName.LastName == Ln && EmailAddress== Fn && EmailAddress==email;
+            return FullName.LastName == Ln && EmailAddress== Fn && EmailAddress==email;
         }
         //10-c
         public bool CheckProfile2(string Fn, string Ln, string email)
         {
             if(email!=null) 
-            return fullName.LastName == Ln && EmailAddress == Fn && EmailAddress == email;
-            else return fullName.FirstName == Fn && fullName.LastName == Ln;
+            return FullName.LastName == Ln && EmailAddress == Fn && EmailAddress == email;
+            else return FullName.FirstName == Fn && FullName.LastName == Ln;
         }
 
         //Polymorphisme par héritage
