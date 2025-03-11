@@ -56,6 +56,19 @@ namespace AM.Infrastructure
             //            .HasForeignKey(f => f.planeFK)
             //            .IsRequired()
             //            .OnDelete(DeleteBehavior.Cascade);
+
+            // configurer l'heritage Table Per Hierarchy (TPH)
+            //modelBuilder.Entity<Passenger>()
+            //            .HasDiscriminator<int>("IsTraveller")
+            //            .HasValue<Passenger>(2)
+            //            .HasValue<Traveller>(1)
+            //            .HasValue<Staff>(0);
+
+            // configurer l'heritage Table Per Type (TPT) : juste les classe filles
+            modelBuilder.Entity<Traveller>().ToTable("Travellers");
+            modelBuilder.Entity<Staff>().ToTable("Staffs");
+
+
             base.OnModelCreating(modelBuilder);
         }
 
