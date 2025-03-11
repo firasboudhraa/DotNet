@@ -17,6 +17,7 @@ namespace AM.Infrastructure
         public DbSet<Passenger> Passengers { get; set; }
         public DbSet<Staff> Staffs { get; set; }
         public DbSet<Traveller> Travellers { get; set; }
+        public DbSet<Ticket> Tickets { get; set; }
 
         //OnConfiguring
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -68,6 +69,10 @@ namespace AM.Infrastructure
             modelBuilder.Entity<Traveller>().ToTable("Travellers");
             modelBuilder.Entity<Staff>().ToTable("Staffs");
 
+
+            // configurer la clé primaire de la porteuse de données
+            modelBuilder.Entity<Ticket>()
+                        .HasKey(t => new { t.FlightFK, t.PassengerFK });
 
             base.OnModelCreating(modelBuilder);
         }

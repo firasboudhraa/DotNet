@@ -21,7 +21,8 @@ namespace AM.ApplicationCore.Domain
         public string EmailAddress { get; set; }
         [RegularExpression("^[0,9]{8}$")]
         public int TelNumber { get; set; }
-        public ICollection<Flight> Flights { get; set; }
+        //public ICollection<Ticket> tickets { get; set; }
+        public ICollection<Ticket> tickets { get; set; }
 
         public FullName FullName { get; set; }
 

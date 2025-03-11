@@ -27,8 +27,8 @@ namespace AM.ApplicationCore.Domain
             FlightDate = new DateTime(2022, 01, 01, 15, 10, 10),
             Destination = "Paris",
             EffectiveArrival = new DateTime(2022, 01, 01, 17, 10, 10),
-            EstimateDuration = 110,
-            Passengers = new List<Passenger> { captain, hostess1, hostess2, traveller1, traveller2, traveller3, traveller4, traveller5 }
+            EstimateDuration = 110
+            //Passengers = new List<Passenger> { captain, hostess1, hostess2, traveller1, traveller2, traveller3, traveller4, traveller5 }
        ,
             plane = Airbusplane
         };

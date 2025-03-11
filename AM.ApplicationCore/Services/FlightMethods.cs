@@ -127,8 +127,9 @@ namespace AM.ApplicationCore.Services
                       orderby p.BirthDate
                       select p;
             return req.Take(3);*/
-            var req = flight.Passengers.OfType<Traveller>().OrderByDescending(p => p.BirthDate).Take(3);
-            return req;
+            //var req = flight.Passengers.OfType<Traveller>().OrderByDescending(p => p.BirthDate).Take(3);
+            //return req;
+            return null;
 
         }
         

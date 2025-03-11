@@ -22,9 +22,9 @@ namespace AM.Infrastructure.Configurations
             //builder.Property(f => f.EstimateDuration).HasColumnType("int");
 
             //Configure *-* relationship
-            builder.HasMany(f => f.Passengers)
-                   .WithMany(p => p.Flights)
-                   .UsingEntity(t=> t.ToTable("Reservations"));
+            //builder.HasMany(f => f.Passengers)
+            //       .WithMany(p => p.Flights)
+            //       .UsingEntity(t=> t.ToTable("Reservations"));
 
             //Configure 1-* relationship
             builder.HasOne(f => f.plane)

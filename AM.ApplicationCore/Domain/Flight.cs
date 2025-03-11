@@ -21,7 +21,8 @@ namespace AM.ApplicationCore.Domain
         [ForeignKey("planeFK")]
         public Plane plane { get; set; }
         public int planeFK { get; set; }
-        public ICollection<Passenger> Passengers { get; set; }
+        //public ICollection<Passenger> Passengers { get; set; }
+        public ICollection<Ticket> Tickets { get; set; }
 
         public override string? ToString()
         {
