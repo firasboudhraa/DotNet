@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using AM.ApplicationCore.Domain;
 using AM.ApplicationCore.Services;
+using AM.Infrastructure;
 
 
 //Console.WriteLine("Hello, World!");
@@ -100,3 +101,39 @@ flightService.DestinationGroupedFlights();
         Console.WriteLine($"Décollage : {flight.FlightDate.ToString("dd/MM/yyyy HH:mm:ss")}");
     }
 }*/
+
+//Insertion dans la BD
+
+AMContext ctx = new AMContext();
+
+//Instanciation des objets
+
+Plane plane1 = new Plane()
+{
+    planeType = PlaneType.Airbus,
+    Capacity = 150,
+    ManuFactureDate = new DateTime(2015, 02, 03)
+};
+
+Flight f1 = new Flight()
+{
+    Departure = "Tunis",
+    AirlineLogo = "Tunisair",
+    FlightDate = new DateTime(2022, 02, 01, 21, 10, 10),
+    Destination = "Paris",
+    EffectiveArrival = new DateTime(2022, 02, 01, 23, 10, 10),
+    EstimateDuration= 105,
+    plane = plane1
+};
+
+//Ajouter des objets aux Dbset
+
+ctx.Planes.Add(TestData.Airbusplane);
+ctx.Planes.Add(TestData.BoingPlane);
+
+ctx.Flights.Add(f1);
+
+//persister les données
+
+ctx.SaveChanges();
+Console.WriteLine("Ajout avec succées");
