@@ -84,10 +84,10 @@ foreach ( var flight in flightService.OrderedDurationFlights())
 Console.WriteLine("**********************************************************************************************************");
 Flight selectedFlight = flightService.Flights.First();
 Console.WriteLine($"Top 3 oldest travellers on flight to {selectedFlight.Destination}: ");
-foreach(var t in flightService.SeniorTravellers(selectedFlight))
+/*foreach(var t in flightService.SeniorTravellers(selectedFlight))
 {
     Console.WriteLine($"{t.FullName.FirstName} {t.FullName.LastName} , Born: {t.BirthDate.ToShortDateString()}");
-}
+}*/
 
 //Question15 
 Console.WriteLine("**********************************************************************************************************");
@@ -137,3 +137,4 @@ ctx.Flights.Add(f1);
 
 ctx.SaveChanges();
 Console.WriteLine("Ajout avec succées");
+

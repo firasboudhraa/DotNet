@@ -19,7 +19,7 @@ namespace AM.ApplicationCore.Domain
         public int EstimateDuration { get; set; }
         //[ForeignKey("plane")]
         [ForeignKey("planeFK")]
-        public Plane plane { get; set; }
+        public Plane plane { get; set; } 
         public int planeFK { get; set; }
         //public ICollection<Passenger> Passengers { get; set; }
         public ICollection<Ticket> Tickets { get; set; }

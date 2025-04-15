@@ -21,6 +21,8 @@ namespace AM.ApplicationCore.Domain
         public PlaneType planeType { get; set; }
         public ICollection<Flight> Flights { get; set; }
 
+
+
         public override string? ToString()
         {
             return "Capacity:" +Capacity+ "ManuFactureDate:" +ManuFactureDate;

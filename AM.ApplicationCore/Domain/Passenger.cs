@@ -37,7 +37,7 @@ namespace AM.ApplicationCore.Domain
             return FullName.FirstName == Fn && FullName.LastName == Ln;
         }
         //10-b
-        public bool CheckProfile( string Fn , string Ln, string email=null) 
+        public bool CheckProfile( string Fn , string Ln, string email) 
         {
             return FullName.LastName == Ln && EmailAddress== Fn && EmailAddress==email;
         }

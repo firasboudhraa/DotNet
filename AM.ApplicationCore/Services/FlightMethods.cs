@@ -48,7 +48,7 @@ namespace AM.ApplicationCore.Services
             //fonction lambda
             //result = Flights.Where(f => f.Destination.Equals(destination))
             //                .Select(f => f.FlightDate);
-            return new List<DateTime>();
+            return result;
         }
         //Question8
         public IEnumerable<Flight> GetFlights(string filterType, string filterValue)
