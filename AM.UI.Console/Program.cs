@@ -105,10 +105,13 @@ flightService.DestinationGroupedFlights();
 //Insertion dans la BD
 
 AMContext ctx = new AMContext();
+UnitOfWork uow = new UnitOfWork(ctx);
+ServiceFlight sf = new ServiceFlight(uow);
+ServicePlane sp = new ServicePlane(uow);
 
 //Instanciation des objets
 
-Plane plane1 = new Plane()
+Plane plane1 = new Plane
 {
     planeType = PlaneType.Airbus,
     Capacity = 150,
@@ -128,10 +131,18 @@ Flight f1 = new Flight()
 
 //Ajouter des objets aux Dbset
 
-ctx.Planes.Add(TestData.Airbusplane);
-ctx.Planes.Add(TestData.BoingPlane);
+//ctx.Planes.Add(TestData.Airbusplane);
+//ctx.Planes.Add(TestData.BoingPlane);
 
-ctx.Flights.Add(f1);
+//ctx.Flights.Add(f1);
+
+sp.Add(TestData.Airbusplane);
+sp.Add(TestData.BoingPlane);
+sp.Add(plane1);
+sf.Add(f1);
+
+sp.Commit(); //or sf.Commit()
+sf.Commit();
 
 //persister les données
 
