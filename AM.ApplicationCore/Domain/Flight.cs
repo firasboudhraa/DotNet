@@ -13,18 +13,19 @@ namespace AM.ApplicationCore.Domain
         public string AirlineLogo { get; set; }
         public string Destination { get; set; }
         public string Departure { get; set; }
+        public string Pilot { get; set; }
 
         public DateTime FlightDate { get; set; }
         public DateTime EffectiveArrival { get; set; }
         public int EstimateDuration { get; set; }
         //[ForeignKey("plane")]
         [ForeignKey("planeFK")]
-        public Plane plane { get; set; } 
+        public virtual Plane? plane { get; set; } 
         public int planeFK { get; set; }
         //public ICollection<Passenger> Passengers { get; set; }
-        public ICollection<Ticket> Tickets { get; set; }
+        public virtual ICollection<Ticket> Tickets { get; set; }
 
-        public override string? ToString()
+        public override string ToString()
         {
             return "Departure: " +Departure+ " Destination: " +Destination+ " FlightDate: " +FlightDate;
         }

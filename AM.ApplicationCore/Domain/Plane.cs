@@ -20,7 +20,7 @@ namespace AM.ApplicationCore.Domain
         public int Capacity { get; set; }
         public DateTime ManuFactureDate  { get; set; }
         public PlaneType planeType { get; set; }
-        public ICollection<Flight> Flights { get; set; }
+        public virtual  ICollection<Flight> Flights { get; set; }
         [NotMapped]
         public string Information { get { return PlaneId + " " + ManuFactureDate + " " + Capacity; } }
 

@@ -27,6 +27,8 @@ namespace AM.Infrastructure
                                         Integrated Security=true;
                                         MultipleActiveResultSets=true");
 
+            optionsBuilder.UseLazyLoadingProxies();
+
             base.OnConfiguring(optionsBuilder);
         }
 

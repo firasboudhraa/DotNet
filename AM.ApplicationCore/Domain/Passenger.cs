@@ -15,14 +15,14 @@ namespace AM.ApplicationCore.Domain
         [StringLength(7)] //longueur du champ 7 
         public string PassportNumber { get; set; }
         [Display(Name = "Date of Birth")]
-        [DataType(DataType.Date)]
+        [DataType(DataType.DateTime)]
         public DateTime BirthDate { get; set; }
         [DataType(DataType.EmailAddress)]
         public string EmailAddress { get; set; }
         [RegularExpression("^[0,9]{8}$")]
         public int TelNumber { get; set; }
         //public ICollection<Ticket> tickets { get; set; }
-        public ICollection<Ticket> tickets { get; set; }
+        public virtual ICollection<Ticket> tickets { get; set; }
 
         public FullName FullName { get; set; }
 

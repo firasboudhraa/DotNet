@@ -10,6 +10,21 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<form asp-action="index">
+    <fieldset>
+        <legend> Recherche</legend>
+        Saisir une date de départ :
+        <input type="datetime-local" name="dateDepart" />
+        <input type="submit" value="Serach" />
+    </fieldset>
+</form>
+<form asp-action="Sort">
+    <fieldset>
+        <input type="submit" value="Sort" />
+    </fieldset>
+</form>
+
+
 <table class="table">
     <thead>
         <tr>
@@ -36,6 +51,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.planeFK)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pilot)
             </th>
             <th></th>
         </tr>
@@ -68,11 +86,19 @@
                 @Html.DisplayFor(modelItem => item.planeFK)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                 <img src="~/uploads/@item.Pilot" width="50" height="50">
+            </td>
+                <td colspan="5">
+                    <partial name="FlightDetails" model="item" />
+                </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.FlightId }) |
                 @Html.ActionLink("Details", "Details", new {  id=item.FlightId  }) |
                 @Html.ActionLink("Delete", "Delete", new {  id=item.FlightId  })
             </td>
         </tr>
+            
+
 }
     </tbody>
 </table>

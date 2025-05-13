@@ -46,6 +46,8 @@ namespace AM.ApplicationCore.Services
         {
             return repository.Get(where);
         }
+
+
         public void Commit()
         {
             try
@@ -58,5 +60,6 @@ namespace AM.ApplicationCore.Services
             }
 
         }
+
     }
 }

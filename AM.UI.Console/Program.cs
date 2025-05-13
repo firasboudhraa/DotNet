@@ -129,6 +129,46 @@ Flight f1 = new Flight()
     plane = plane1
 };
 
+
+
+
+Passenger p1 = new Passenger
+{
+    PassportNumber = "A123456",
+    BirthDate = new DateTime(1995, 10, 20),
+    EmailAddress = "Firas.Boudhraa@esprit.tn",
+    TelNumber = 12345678,
+    FullName = new FullName
+    {
+        FirstName = "Firas",
+        LastName = "Boudhraa"
+    },
+    tickets = new List<Ticket>()
+};
+Passenger p2 = new Passenger
+{
+    PassportNumber = "A123457",
+    BirthDate = new DateTime(1995, 10, 20),
+    EmailAddress = "Firas.Boudhraa@esprit.tn",
+    TelNumber = 12345678,
+    FullName = new FullName
+    {
+        FirstName = "Firas",
+        LastName = "Boudhraa"
+    },
+    tickets = new List<Ticket>()
+};
+
+Ticket t1 = new Ticket
+{
+    Prix = 100,
+    Siege = "1A",
+    VIP = true,
+    PassengerFK = p1.PassportNumber,
+    FlightFK = 1
+};
+
+
 //Ajouter des objets aux Dbset
 
 //ctx.Planes.Add(TestData.Airbusplane);
@@ -136,13 +176,15 @@ Flight f1 = new Flight()
 
 //ctx.Flights.Add(f1);
 
-sp.Add(TestData.Airbusplane);
-sp.Add(TestData.BoingPlane);
-sp.Add(plane1);
-sf.Add(f1);
+//sp.Add(TestData.Airbusplane);
+//sp.Add(TestData.BoingPlane);
+//sp.Add(plane1);
+//sf.Add(f1);
 
-sp.Commit(); //or sf.Commit()
-sf.Commit();
+//sp.Commit(); //or sf.Commit()
+//sf.Commit();
+//ctx.Passengers.Add(p2);
+ctx.Tickets.Add(t1);
 
 //persister les données
 
